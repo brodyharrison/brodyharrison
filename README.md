@@ -25,16 +25,16 @@ Currently in closed beta with UK production companies.
 
 ---
 
-### [JobJar](https://jobjar.io) — AI-Powered Job Aggregator
+### [JobJar](https://jobjar.io) — Unfiltered Job Aggregator
 
-Indexes 200K+ job listings from 10,000+ ATS sources in real-time.
+JobJar aggregates job listings daily from 16 sources — Greenhouse, Lever, Ashby, RemoteOK, Remotive, We Work Remotely, and more — and displays them without algorithmic ranking or filtering. 278,000+ active listings. Search by title, location, seniority, or remote status.
 
-**Stack:** Next.js · Supabase · Google Gemini · Tailwind · Vercel
+**Stack:** Next.js · Neon (PostgreSQL) · Prisma · Clerk · Vercel
 
 Some of the interesting problems I got to solve here:
-- Built a custom ATS slug harvester using the Wayback Machine CDX API to discover and index 10K+ company career page endpoints
-- Gemini-powered classification pipeline that parses, normalizes, and categorizes listings by role, seniority, and compensation
-- Real-time ingestion across fragmented ATS platforms (Greenhouse, Lever, Ashby, Workday, and more)
+- Built a custom ATS slug harvester using the Wayback Machine CDX API to discover and index 10,000+ company career page endpoints across Greenhouse, Lever, and Ashby
+- Gemini 2.5 Flash classification pipeline that automatically tags every listing with seniority, employment type, remote status, country, and city at ingest
+- Parallelized daily pollers across 16 sources with per-source cron jobs, deduplication by URL, and automatic expiry of listings older than 60 days
 
 ---
 
